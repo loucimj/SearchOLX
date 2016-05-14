@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="UVf-G1-O3I" customClass="SearchTableViewCell" customModule="SearchOLX" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB" customClass="ImagePreviewView" customModule="SearchOLX" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="8" width="375" height="240"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ford Focus 2008" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPD-Pj-iFg">
+                    <rect key="frame" x="10" y="190" width="232" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="4Wv-jx-xgZ"/>
+                        <constraint firstAttribute="width" constant="232" id="ZDl-xH-RbZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200.000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTY-G1-2vO">
+                    <rect key="frame" x="265" y="190" width="100" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Rix-Y2-Tsi"/>
+                        <constraint firstAttribute="width" constant="100" id="sAi-hp-r4N"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="CTY-G1-2vO" secondAttribute="trailing" constant="10" id="5KW-ZA-44o"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="top" secondItem="UVf-G1-O3I" secondAttribute="top" constant="8" id="Fs8-qc-Y7H"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="centerX" secondItem="UVf-G1-O3I" secondAttribute="centerX" id="IRu-RP-rMm"/>
+                <constraint firstAttribute="bottom" secondItem="iPD-Pj-iFg" secondAttribute="bottom" constant="10" id="Kzl-7u-d0X"/>
+                <constraint firstAttribute="bottom" secondItem="CTY-G1-2vO" secondAttribute="bottom" constant="10" id="aVK-l8-WNA"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="height" secondItem="UVf-G1-O3I" secondAttribute="height" id="foe-8Q-WAu"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="width" secondItem="UVf-G1-O3I" secondAttribute="width" id="hDd-la-kMj"/>
+                <constraint firstItem="iPD-Pj-iFg" firstAttribute="leading" secondItem="UVf-G1-O3I" secondAttribute="leading" constant="10" id="lHb-9t-SVN"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imagePreview" destination="iN0-l3-epB" id="BvO-dj-erk"/>
+                <outlet property="itemLabel" destination="iPD-Pj-iFg" id="fH0-h4-haZ"/>
+                <outlet property="itemPrice" destination="CTY-G1-2vO" id="qT0-iL-uFP"/>
+            </connections>
+            <point key="canvasLocation" x="311.5" y="258"/>
+        </view>
+    </objects>
+</document>
