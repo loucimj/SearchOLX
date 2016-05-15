@@ -1,8 +1,11 @@
 ## Synopsis
 
 This is an example to show how to do a simple search with an OLX service.
-The project is based in SwiftyJSON, AlamofireImage and Alamofire libraries.
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+The project is based on SwiftyJSON, AlamofireImage and Alamofire libraries.
+
+The application looks something like this:
+
+![Empty field gif](https://raw.githubusercontent.com/loucimj/SearchOLX/master/gifs/empty_field.gif)
 
 ## Code Example
 
