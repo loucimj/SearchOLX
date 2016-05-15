@@ -31,12 +31,17 @@ extension SearchLogic {
         
         service.search(searchQuery,
             successBlock: { json in
+                
                 if let data = json["data"].array {
                     var searchResults = Array<SearchResultItem>()
                     
                     for item in data {
+                        var searchItem = SearchResultItem()
+                        searchItem.title = item["title"].string ?? ""
+                        searchItem.imageURL = item["fullImage"].string ?? ""
                         let priceInfo = item["price"]
-                        let searchItem = SearchResultItem(title: item["title"].string!, imageURL: item["fullImage"].string!, priceLabel: priceInfo["displayPrice"].string!, price: priceInfo["amount"].double!)
+                        searchItem.price = priceInfo["amount"].double ?? 0
+                        searchItem.priceLabel = priceInfo["displayPrice"].string ?? ""
                         searchResults.append(searchItem)
                     }
                     self.searchDidFinish(searchResults)

@@ -64,6 +64,13 @@ extension UIColor {
         
         return UIColor(red: min(rgba[0] + 0.2, 1.0), green: min(rgba[1] + 0.2, 1.0), blue: min(rgba[2] + 0.2, 1.0), alpha: rgba[3])
     }
+    func lighterColor() -> UIColor {
+        let color = self
+        var rgba = [CGFloat](count: 4, repeatedValue: 0.0)
+        color.getRed(&rgba[0], green: &rgba[1], blue: &rgba[2], alpha: &rgba[3])
+        
+        return UIColor(red: min(rgba[0] + 0.2, 1.0), green: min(rgba[1] + 0.2, 1.0), blue: min(rgba[2] + 0.2, 1.0), alpha: rgba[3])
+    }
     
     class func darkerColorForColor(color: UIColor) -> UIColor {
         

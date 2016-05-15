@@ -8,24 +8,34 @@
 
 import UIKit
 
-class ListingTableViewController: UITableViewController, SearchLogic {
+class ListingTableViewController: UITableViewController, SearchLogic,SearchTableViewDelegate {
 
     var searchText: String?
     var results:Array<SearchResultItem> = Array<SearchResultItem>()
+    
+    var rowHeight:CGFloat = 310
+    var dataHasBeenLoaded = false
     
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = searchText
         
+        self.tableView.allowsSelection = false
+        self.tableView.sectionIndexBackgroundColor = self.tableView.backgroundColor
         self.tableView.registerNib(UINib(nibName: "SearchTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchTableViewCell")
+        
 
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         self.title = searchText
-        startSearch()
+        
+        if !dataHasBeenLoaded {
+            startSearch()
+        }
+        dataHasBeenLoaded = true
     }
 
 
@@ -49,6 +59,14 @@ class ListingTableViewController: UITableViewController, SearchLogic {
         tableView.reloadData()
     }
     
+    //MARK: - SearchTableViewDelegate
+    func buyItem(item: SearchResultItem) {
+        print("buy \(item)")
+    }
+    
+    func saveForLaterItem(item: SearchResultItem) {
+        print("saveForLater \(item)")
+    }
 
     // MARK: - Table view data source
 
@@ -61,26 +79,34 @@ class ListingTableViewController: UITableViewController, SearchLogic {
         // #warning Incomplete implementation, return the number of rows
         return results.count
     }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let item = results[indexPath.row]
+        let myCell = cell as! SearchTableViewCell
+
+        myCell.itemLabel.text = item.title
+        myCell.itemPrice.text = item.priceLabel
+        
+        myCell.item = item
+        myCell.delegate = self
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW,0), {
+            myCell.imagePreview.setImageURLToPreview(item.imageURL)
+        })
+        
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SearchTableViewCell", forIndexPath: indexPath) as! SearchTableViewCell
-
-        let item = results[indexPath.row] 
-        
-        cell.imagePreview.setImageURLToPreview(item.imageURL)
-        cell.itemLabel.text = item.title
-        cell.itemPrice.text = item.priceLabel
-
         return cell
     }
     
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 270
+        return rowHeight
     }
-
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 270
+        return rowHeight
     }
+    
     
     /*
     // Override to support conditional editing of the table view.
