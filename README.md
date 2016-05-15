@@ -6,6 +6,7 @@ The project is based on SwiftyJSON, AlamofireImage and Alamofire libraries.
 The application looks something like this:
 
 ![Empty field gif](https://raw.githubusercontent.com/loucimj/SearchOLX/master/gifs/empty_field.gif)
+![Search gif](https://raw.githubusercontent.com/loucimj/SearchOLX/master/gifs/search.gif)
 
 ## Code Example
 
