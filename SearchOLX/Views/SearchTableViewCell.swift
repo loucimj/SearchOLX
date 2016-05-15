@@ -30,6 +30,7 @@ class SearchTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.contentView.userInteractionEnabled = false
+        addGesturesToButtons()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -42,6 +43,14 @@ class SearchTableViewCell: UITableViewCell {
         itemLabel.text = item.title
         itemPrice.text = item.priceLabel
         
+
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW,0), {
+            self.imagePreview.setImageURLToPreview(item.imageURL)
+        })
+        
+    }
+    
+    func addGesturesToButtons() {
         let gesture1 = UITapGestureRecognizer(target: self, action: #selector(save))
         saveImageView.userInteractionEnabled = true
         saveImageView.addGestureRecognizer(gesture1)
@@ -50,9 +59,6 @@ class SearchTableViewCell: UITableViewCell {
         buyImageView.userInteractionEnabled = true
         buyImageView.addGestureRecognizer(gesture2)
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW,0), {
-            self.imagePreview.setImageURLToPreview(item.imageURL)
-        })
         
     }
 
