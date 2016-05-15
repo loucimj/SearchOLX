@@ -5,7 +5,11 @@ The project is based on SwiftyJSON, AlamofireImage and Alamofire libraries.
 
 The application looks something like this:
 
+###Empty field validation:
 ![Empty field gif](https://raw.githubusercontent.com/loucimj/SearchOLX/master/gifs/empty_field.gif)
+
+
+###Search results screen:
 ![Search gif](https://raw.githubusercontent.com/loucimj/SearchOLX/master/gifs/search.gif)
 
 ## Code Example
