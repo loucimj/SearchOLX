@@ -1,6 +1,6 @@
 ## Synopsis
 
-This is an example to show how to do a simple search with an OLX service.
+This is an example to show how to do a simple search to an OLX service.
 The project is based on SwiftyJSON, AlamofireImage and Alamofire libraries.
 
 The application looks something like this:
