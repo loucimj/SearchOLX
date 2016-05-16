@@ -9,7 +9,7 @@
 import XCTest
 @testable import SearchOLX
 
-class SearchOLXTests: XCTestCase {
+class SearchOLXTests: XCTestCase,SearchLogic {
     
     override func setUp() {
         super.setUp()
@@ -21,16 +21,21 @@ class SearchOLXTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testService() {
+        searchItems("autos")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
+    func searchDidFinish(items: Array<SearchResultItem>) {
+        
+        if items.count == 0 {
+            XCTFail("no items from query")
+        } else {
+            for item in items {
+                print (item)
+            }
+            XCTAssert(true, "\(items.count)")
         }
     }
+    
     
 }
